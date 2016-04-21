@@ -2,10 +2,10 @@ var noun = [
   'cloud', 'big data', 'SaaS', 'analytics',
   'behavior-driven development', 'data mining',
   'data mining', 'ecosystems', 'Hadoop',
-  'multi-core', 'single-page applications',
+  'single-page applications',
   'development', 'machine learning',
   'pair programming', 'infrastructure',
-  'performance', 'mindshare', 'HTML5',
+  'performance', 'mindshare', 'dashboards',
   'convergence', 'datafication', 'dev ops',
   'disruptive technologies', 'document management',
   'document management', 'frameworks', 'portals',
@@ -17,7 +17,7 @@ var adj = [
   'asynchronous', 'agile', 'open source',
   'RESTful', 'scalable', 'enterprise',
   'thin-client', 'full-stack', 'noSQL',
-  'freemium', 'distributed', 'automated',
+  'multi-core', 'freemium', 'distributed', 'automated',
   'platform agnostic', 'modular', 'compiled',
   'data-driven', 'optimized', 'pragmatic',
   'self-driving', 'vertical', 'mobile',
@@ -29,7 +29,8 @@ var adj = [
 var ing = [
   'benchmarking', 'visualizing', 'automating',
   'pre-processing', 'optimizing', 'profiling',
-  'engaging'
+  'engaging', 'overtaking', 'implementing', 'enhancing',
+  'out-performing', 'revealing'
 ];
 
 var verb = [
@@ -90,6 +91,9 @@ var buzz = {
   },
   connect: function () {
     return rand(frag)+' ';
+  },
+  sentence: function () {
+    return rand([s1(), s2(), s3()]);
   }
 };
 
@@ -107,6 +111,10 @@ function dot (word, symb) {
 
 function plur (word, symb) {
   return word.slice(0, word.length-1)+'s ';
+}
+
+if (typeof window != "undefined") {
+  window.buzz = buzz;
 }
 
 module.exports = buzz;
