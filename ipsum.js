@@ -1,42 +1,7 @@
-var ipsum = document.getElementById('ipsum');
-var ipso = document.getElementById('ipso');
-var bipso = document.getElementById('bipso');
-
-var buzz = {
-  noun: function () {
-    return rand(noun)+' ';
-  },
-  adj: function () {
-    return rand(adj)+' ';
-  },
-  ing: function () {
-    return rand(ing)+' ';
-  },
-  verb: function () {
-    return rand(verb)+' ';
-  },
-};
-
-function rand (words) {
-  return words[Math.floor(Math.random()*words.length)];
-}
-
-function cap (word) {
-  return word.charAt(0).toUpperCase()+word.slice(1);
-}
-
-function dot (word, symb) {
-  return word.slice(0, word.length-1)+symb+' ';
-}
-
-function plur (word, symb) {
-  return word.slice(0, word.length-1)+'s ';
-}
-
 var noun = [
   'cloud', 'big data', 'SaaS', 'analytics',
   'behavior-driven development', 'data mining',
-  'data mining', 'ecosystems', 'Hadoop', 
+  'data mining', 'ecosystems', 'Hadoop',
   'multi-core', 'single-page applications',
   'development', 'machine learning',
   'pair programming', 'infrastructure',
@@ -44,8 +9,7 @@ var noun = [
   'convergence', 'datafication', 'dev ops',
   'disruptive technologies', 'document management',
   'document management', 'frameworks', 'portals',
-  'skeuomorphism', 'lifecycles', 'user-ls
-  generated content',
+  'skeuomorphism', 'lifecycles', 'user-generated content',
   'dogfood', 'low-hanging fruit'
 ];
 
@@ -71,15 +35,18 @@ var ing = [
 var verb = [
   'leverage', 'create', 'improve', 'emulate',
   'persist', 'brainstorm', 'reimagine', 'engineer',
-  'recreate', 'replace', 'render obsolete', 
+  'recreate', 'replace', 'render obsolete',
   'innovate', 'maximize', 'gamify', 'recontextualize',
    'create the opportunity for', 'make a case for',
-   'interfere with', 'facilitate the creation of' 
+   'interfere with', 'facilitate the creation of',
+   'overtake'
 ];
 
 var frag = [
   'will', 'should', 'can', 'must', 'will eventually',
-  'won\'t', 'mustn\'t', 'might', 'may'
+  'won\'t', 'mustn\'t', 'might', 'may', 'can never',
+  'should not', 'must never', 'is preparing to',
+  'comes up against'
 ];
 
 var join = [
@@ -88,12 +55,8 @@ var join = [
 ];
 
 var start = [
-  'looking forward', 
+  'looking forward',
 ];
-
-ipsum.innerHTML = s1()+s1()+s1()+s1()+s1()+s1()+'\n\n'+s1()+s1()+s1()+s1()+s1()+s1();
-ipso.innerHTML = s2()+s2()+s2()+s2()+s2()+s2()+s2()+s2()+s2()+s2()+s2()+s2();
-bipso.innerHTML = s3()+s2()+s1()+s2()+s1()+s2()+s1()+s2()+s1()+s2()+s1()+s1();
 
 function s1 () {
   return cap(buzz.adj())+buzz.noun()+rand(frag)+
@@ -111,3 +74,39 @@ function s3 () {
   'for '+buzz.adj()+buzz.noun()+rand(join)+' '+
   buzz.adj()+dot(buzz.noun(), '.');
 }
+
+var buzz = {
+  noun: function () {
+    return rand(noun)+' ';
+  },
+  adj: function () {
+    return rand(adj)+' ';
+  },
+  ing: function () {
+    return rand(ing)+' ';
+  },
+  verb: function () {
+    return rand(verb)+' ';
+  },
+  connect: function () {
+    return rand(frag)+' ';
+  }
+};
+
+function rand (words) {
+  return words[Math.floor(Math.random()*words.length)];
+}
+
+function cap (word) {
+  return word.charAt(0).toUpperCase()+word.slice(1);
+}
+
+function dot (word, symb) {
+  return word.slice(0, word.length-1)+symb+' ';
+}
+
+function plur (word, symb) {
+  return word.slice(0, word.length-1)+'s ';
+}
+
+module.exports = buzz;

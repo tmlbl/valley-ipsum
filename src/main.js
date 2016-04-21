@@ -1,1 +1,0 @@
-var ipsum = require('./ipsum.js');
